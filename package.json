@@ -1,0 +1,16 @@
+{
+  "name": "zadanie1",
+  "version": "1.0.0",
+  "description": "Zadanie na praktiku Forus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Grishaev Daniil",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
