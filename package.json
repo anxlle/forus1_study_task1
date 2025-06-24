@@ -1,5 +1,5 @@
 {
-  "name": "zadanie1",
+  "name": "zadanie3",
   "version": "1.0.0",
   "description": "Zadanie na praktiku Forus",
   "main": "index.js",
@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^5.1.0",
+    "mysql2": "^3.14.1",
     "nodemon": "^3.1.10"
   }
 }

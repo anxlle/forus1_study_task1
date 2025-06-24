@@ -1,3 +1,19 @@
+const mysql = require("mysql2");
+const connection = mysql.createConnection({
+	host: "localhost",
+	user: "root",
+	database: "usersdb",
+	password: "1234"
+});
+connection.connect(function(err){
+	if (err) return console.error("error: " + err.message);
+	else console.log("connection to mysql server is successful");
+});
+connection.end(function(err){
+	if (err) return console.log("error: " + err.message);
+	console.log("connection is over");
+});
+
 const express = require("express");
 const app = express();
 
