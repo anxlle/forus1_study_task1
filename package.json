@@ -1,5 +1,5 @@
 {
-  "name": "zadanie3",
+  "name": "zadanie4",
   "version": "1.0.0",
   "description": "Zadanie na praktiku Forus",
   "main": "index.js",
@@ -10,8 +10,7 @@
   "author": "Grishaev Daniil",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0",
-    "mysql2": "^3.14.1",
+    "node-telegram-bot-api": "^0.66.0",
     "nodemon": "^3.1.10"
   }
 }
