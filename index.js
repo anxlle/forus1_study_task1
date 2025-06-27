@@ -42,7 +42,7 @@ bot.onText(/\/randomItem/i, (msg) => {
 bot.onText(/\/deleteItem\s+(\d+)/i, (msg, match) => {
 	const id = match[1];
 	pool.query("DELETE FROM items WHERE id=?", [id], function (err, data) {
-		if (err) return bot.sendMessage(msg.chat.id, "Возникла ошибка при вызовые команды. Текст ошибки: " + err.message);
+		if (err) return bot.sendMessage(msg.chat.id, "Возникла ошибка при вызове команды. Текст ошибки: " + err.message);
 		if (data.affectedRows === 0) return bot.sendMessage(msg.chat.id, "Ошибка");
 		bot.sendMessage(msg.chat.id, "Удачно");
 	});
@@ -51,7 +51,7 @@ bot.onText(/\/deleteItem\s+(\d+)/i, (msg, match) => {
 bot.onText(/\/getItemByID\s+(\d+)/i, (msg, match) => {
 	const id = match[1];
 	pool.query("SELECT * FROM items WHERE id=?", [id], function (err, data) {
-		if (err) return bot.sendMessage(msg.chat.id, "Возникла ошибка при вызовые команды. Текст ошибки: " + err.message);
+		if (err) return bot.sendMessage(msg.chat.id, "Возникла ошибка при вызове команды. Текст ошибки: " + err.message);
 		if (!data) return bot.sendMessage(msg.chat.id, "Таблица БД пуста");
 		bot.sendMessage(msg.chat.id, JSON.stringify(data));
 	});
