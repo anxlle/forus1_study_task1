@@ -34,7 +34,7 @@ bot.onText(/\/creator/i, (msg) => {
 bot.onText(/\/randomItem/i, (msg) => {
 	pool.query("SELECT * FROM items ORDER BY RAND() LIMIT 1", function (err, data) {
 		if (err) return bot.sendMessage(msg.chat.id, "Возникла ошибка при вызове команды. Текст ошибки: " + err.message);
-		if (!data) return bot.sendMessage(msg.chat.id, "Таблица БД пуста");
+		if (!data || data.length === 0) return bot.sendMessage(msg.chat.id, "Нет данных");
 		bot.sendMessage(msg.chat.id, JSON.stringify(data));
 	});
 });
@@ -52,7 +52,7 @@ bot.onText(/\/getItemByID\s+(\d+)/i, (msg, match) => {
 	const id = match[1];
 	pool.query("SELECT * FROM items WHERE id=?", [id], function (err, data) {
 		if (err) return bot.sendMessage(msg.chat.id, "Возникла ошибка при вызове команды. Текст ошибки: " + err.message);
-		if (!data) return bot.sendMessage(msg.chat.id, "Таблица БД пуста");
+		if (!data || data.length === 0) return bot.sendMessage(msg.chat.id, "Нет данных");
 		bot.sendMessage(msg.chat.id, JSON.stringify(data));
 	});
 });
