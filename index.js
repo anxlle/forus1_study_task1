@@ -3,18 +3,18 @@ const tgbot = require('node-telegram-bot-api');
 const token = '7533819906:AAEYRnXI062GSQnqHipGuUdGQdh2p_rFv6s';
 const bot = new tgbot(token, {polling: true});
 
-bot.on('message', (msg) => {
-	var start = "/start", help = "/help", site = "/site", creator = "/creator";
+bot.onText(/\/start/i, (msg) => {
+	bot.sendMessage(msg.chat.id, "Привет, октагон!");
+});
 
-	if (msg.text.toString().toLowerCase().indexOf(start) === 0)
-		bot.sendMessage(msg.chat.id, "Привет, октагон!");
-	
-	if (msg.text.toString().toLowerCase().indexOf(help) === 0)
-		bot.sendMessage(msg.chat.id, "Список команд:\n/site - отправляет в чат ссылку на сайт октагона\n/creator - отправляет в чат ФИО");
-		
-	if (msg.text.toString().toLowerCase().indexOf(site) === 0)
-		bot.sendMessage(msg.chat.id, "https://octagon-students.ru/");
+bot.onText(/\/help/i, (msg) => {
+	bot.sendMessage(msg.chat.id, "Список команд:\n/site - отправляет в чат ссылку на сайт октагона\n/creator - отправляет в чат ФИО");
+});
 
-	if (msg.text.toString().toLowerCase().indexOf(creator) === 0)
-		bot.sendMessage(msg.chat.id, "Гришаев Даниил Геннадьевич");
+bot.onText(/\/site/i, (msg) => {
+	bot.sendMessage(msg.chat.id, "https://octagon-students.ru/");
+});
+
+bot.onText(/\/creator/i, (msg) => {
+	bot.sendMessage(msg.chat.id, "Гришаев Даниил Геннадьевич");
 });
