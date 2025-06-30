@@ -16,7 +16,7 @@ app.use("/dynamic", function(_, res) {
 	const error = {
 		header: 'Error'
 	};
-	if (isNaN(a) || isNaN(b) || isNaN(c) || !a || !b || !c)
+	if (isNaN(parseInt(a)) || isNaN(parseInt(b)) || isNaN(parseInt(c)))
 		return res.json(error);
 	const data = {
 		header: 'Calculated',
